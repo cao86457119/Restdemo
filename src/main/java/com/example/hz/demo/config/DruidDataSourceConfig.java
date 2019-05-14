@@ -21,7 +21,7 @@ public class DruidDataSourceConfig {
         ServletRegistrationBean t = new ServletRegistrationBean(c,"/druid/*");
         t.addInitParameter("loginUsername","admin");
         t.addInitParameter("loginPassword","admin");
-        t.addInitParameter("allow","127.0.0.1");
+        t.addInitParameter("allow","localhost");
         return t;
 
     }

@@ -29,6 +29,6 @@ public class Account {
     public void setUserId(int userId) {
         this.userId = userId;
     }
-    //getter/setter 这里省略...
+    //getter/setter 这里省略......
 
 }

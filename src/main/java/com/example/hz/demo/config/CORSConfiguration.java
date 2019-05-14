@@ -20,7 +20,7 @@ public class CORSConfiguration implements WebMvcConfigurer {
     public void addCorsMappings(CorsRegistry registry) {
 
         logger.info("addcorsmapping");
-        final int TIME_OUT = 100;
+        final int TIME_OUT = 300;
         registry.addMapping("/**")
                 .allowedMethods("*")
                 .allowedOrigins("*")
