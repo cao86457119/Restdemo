@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.example.hz.demo.generated.UserAndAccountMapper">
+    <resultMap id="UserResult" type="com.example.hz.demo.entity.UserEntity">
+        <id column="id" jdbcType="INTEGER" property="id" />
+        <result column="name" jdbcType="VARCHAR" property="name" />
+        <result column="company_id" jdbcType="INTEGER" property="companyId" />
+        <collection property="accounts" ofType="com.example.hz.demo.entity.Account" resultMap="AccountResult" columnPrefix="ac_"/>
+    </resultMap>
+    <resultMap id="AccountResult" type="com.example.hz.demo.entity.Account">
+        <id column="id" jdbcType="INTEGER" property="id" />
+        <result column="name" jdbcType="VARCHAR" property="accountname" />
+        <result column="user_id" jdbcType="INTEGER" property="userId" />
+    </resultMap>
+    <select id="selectUserWithAccountById" parameterType="java.lang.Integer" resultMap="UserResult">
+        select a.id as id,a.name,a.company_id,a._mycat_op_time,b.id as ac_id,b.name as ac_name,b.user_id as ac_user_id from user a  left join account b on a.id = b.user_id where a.id=#{id}
+    </select>
+</mapper>
